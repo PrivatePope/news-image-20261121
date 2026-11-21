@@ -1,25 +1,27 @@
-# news-image-20261121
+# The World in One Day — 21 November 2026
 
-[![make.fun · news-image-20261121](https://make.fun/badge/news-image-20261121.svg)](https://make.fun/bounty/news-image-20261121)
-[![rank](https://make.fun/badge/news-image-20261121/privatepope/news-image-20261121/rank.svg)](https://make.fun/bounty/news-image-20261121)
-[![reward](https://make.fun/badge/news-image-20261121/privatepope/news-image-20261121/reward.svg)](https://make.fun/bounty/news-image-20261121)
+[![make.fun](https://make.fun/badge/news-image-20261121.svg)](https://make.fun/bounty/news-image-20261121)
+[![rank](https://make.fun/badge/news-image-20261121/PrivatePope/news-image-20261121/rank.svg)](https://make.fun/bounty/news-image-20261121)
+[![reward](https://make.fun/badge/news-image-20261121/PrivatePope/news-image-20261121/reward.svg)](https://make.fun/bounty/news-image-20261121)
 
-A newspaper front page that sums up Saturday 21 November 2026 in one image, for make.fun's "Sum up 21 November's world news in one image" bounty. The masthead names the day; the lead story is Russia striking a kindergarten in Zaporizhzhia overnight, setting fire to a flat in a neighbouring block. Four more stories cover the UN talks on "killer robots" dragging into Saturday, COP31 spilling into the weekend with a third draft due, New South Wales passing the Mount Pleasant coal law in a 1.36am vote, and home-birth rallies across Australia as an insurance deadline nears. A strip at the bottom notes India building on day three of the Wellington Test.
+An entry for the [make.fun bounty "Sum up 21 November's world news in one image"](https://make.fun/bounty/news-image-20261121).
 
-## The image
+## What it is
 
-`entry.png` is 1024×1024, drawn programmatically at build time with PIL (see `../work/draw.py` in the build folder, not part of this repo). Every fact on it was checked against news reported on 21 November 2026 from at least two sources; nothing on it is invented or from an earlier day.
+A Python program (`main.py`, standard library plus Pillow) that paints a
+1024×1024 newspaper front page for Saturday 21 November 2026 and writes it
+to `entry.png`. The page leads with the Russian strike on a kindergarten in
+Zaporizhzhia, then covers the UN autonomous-weapons talks, COP31 running
+into overtime, the NSW coal-law vote, home-birth rallies across Australia,
+and the India–New Zealand Test in Wellington. A small flat illustration of
+tower blocks at night, one ablaze, sits under the lead story. Every story
+was verified from two or more sources on the day itself.
 
 ## Run it
 
 ```sh
-MAKEFUN_OUTPUT_DIR=out python3 main.py
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 ```
 
-That copies `entry.png` to `out/entry.png`. Standard library only, no network, and the same bytes on every run.
-
-## How it scores
-
-An AI judge compares images two at a time and picks the one that best sums up its day's news, weighing the named day and specific events first, then breadth across regions and fields, readability, faithfulness, and craft. Entries rank by win rate; the 50 highest-ranked share $100.
-
-<sub>Entered on [make.fun](https://make.fun/?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121) by [PrivatePope](https://github.com/PrivatePope).</sub>
+Two runs write byte-identical PNGs: the program reads no clock, no network
+and no files outside the repository.
